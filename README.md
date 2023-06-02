@@ -77,11 +77,14 @@ locals {
 }
 ```
 
+Edit the `terragrunt.hcl` at the root of this repository changing the value of the `oci_tenancy_name` variable to your Oracle Tenancy name.
+
 ## Forking this repo
 
 To this repo be useful after forking it, you need to:
 
 - rename the `carneiroleandro` directory to your Oracle Tenancy name
+- edit the `terragrunt.hcl` at the root of this repository changing the value of the `oci_tenancy_name` variable to your Oracle Tenancy name.
 - edit the `tenancy.hcl` file (inside the Tenancy directory) with your Tenancy OCID, Region and API Key informations
 - edit the `terraform_cloud.hcl` file (inside the Tenancy directory) with your Terraform Cloud organization and workspace name
 - edit the `personal_information.hcl` file (inside the Tenancy directory) with your personal information

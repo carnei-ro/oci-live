@@ -8,14 +8,15 @@ terragrunt_version_constraint = ">= 0.45.0"
 
 # Local aliases for improved maintainability
 locals {
-  repo_root      = get_repo_root()
-  workspace_name = path_relative_to_include()
+  oci_tenancy_name = "carneiroleandro"
 
-  # Automatically load account and region-level variables
-  tenancy_vars = read_terragrunt_config(find_in_parent_folders("tenancy.hcl")).locals
+  repo_root = get_repo_root()
+
+  # Automatically load account variables
+  tenancy_vars = read_terragrunt_config(format("%s/%s/tenancy.hcl", local.repo_root, local.oci_tenancy_name)).locals
 
   # Automatically Terraform Cloud variables
-  terraform_cloud = read_terragrunt_config(find_in_parent_folders("terraform_cloud.hcl")).locals
+  terraform_cloud = read_terragrunt_config(format("%s/%s/terraform_cloud.hcl", local.repo_root, local.oci_tenancy_name)).locals
 
   # Extract the variables we need for easy access
   tenancy_ocid = local.tenancy_vars.tenancy_ocid
