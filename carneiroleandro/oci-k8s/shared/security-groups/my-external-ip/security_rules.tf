@@ -20,7 +20,8 @@ resource "oci_core_network_security_group_security_rule" "this" {
   stateless        = try(each.value.stateless, false)
 
   dynamic "tcp_options" {
-    for_each = each.value.tcp_options != null && length(each.value.tcp_options) > 0 ? each.value.tcp_options : []
+    # TODO: fix this for_each
+    for_each = each.value.tcp_options != [] && each.value.tcp_options != null ? each.value.tcp_options : []
 
     content {
       dynamic "destination_port_range" {
