@@ -1,0 +1,21 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+**/.terragrunt-cache
+**/.terraform.lock.hcl
+**/.terraform
+**/_backend.tf
+**/_tg-oci-provider.tf
+**/.tool-versions
+
+**/00-talos-image-file/image_metadata.json
+**/00-talos-image-file/talos-*.oci
+**/talos-config-files/controlplane.yaml
+**/talos-config-files/worker.yaml
+**/talos-config-files/patches/controlplane.yaml
+**/talos-config-files/patches/all.yaml
+**/talos-config-files/talosconfig

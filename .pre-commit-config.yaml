@@ -1,0 +1,46 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-byte-order-marker
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+        args:
+          - --markdown-linebreak-ext=md
+        exclude: \.bumpversion\.cfg$
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.77.1
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_docs
+        args:
+          - --args=--sort-by=required
+      - id: terraform_tflint
+        args:
+          - --args=--disable-rule=terraform_required_providers --disable-rule=terraform_required_version
+      - id: terragrunt_fmt
+  - repo: https://github.com/flaudisio/pre-commit-hooks
+    rev: v0.10.0
+    hooks:
+      - id: check-terraform-unused-variables
+  - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+    rev: 0.2.2
+    hooks:
+      - id: yamlfmt
+        args:
+          - --mapping
+          - '2'
+          - --sequence
+          - '4'
+          - --offset
+          - '2'
+          - --implicit_start
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.30.0
+    hooks:
+      - id: yamllint
+        entry: yamllint --strict
