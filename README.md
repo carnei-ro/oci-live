@@ -112,3 +112,20 @@ kubectl --kubeconfig /tmp/kubeconfig get nodes
 ## Caveats
 
 - To figure out the "Terraform Cloud Workspace" to a specific path execute: `echo -n $PWD | sed "s|$(git rev-parse --show-toplevel)/||g" | sha256sum | awk '{print $1}'`
+- To edit the cluster, ssh to the **talos-bootstraper** instance as ubuntu user, become root and run `/talosctl --talosconfig=/talosconfig --nodes 10.0.16.100 --endpoints 10.0.16.100 edit machineconfig --mode=reboot`. This will reboot the instance and apply the changes.
+- To enable **all** `feature-gates` and `apis` (runtime-config), edit add the following to the machineconfig:
+
+```yaml
+machine:
+  kubelet:
+    extraArgs:
+      feature-gates: AllBeta=true #"AllAlpha=true,AllBeta=true"
+
+cluster:
+  apiServer:
+    extraArgs:
+      runtime-config: "api/all=true"
+      feature-gates: AllBeta=true #"AllAlpha=true,AllBeta=true"
+```
+
+`AllAlpha=true` enables the InPlacePodVerticalScaling, which is making the `kube-apiserver-controlplane-0` pod to crash with error "wait for storage version registration to complete for resource: pods, last seen error".
