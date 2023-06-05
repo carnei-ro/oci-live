@@ -70,4 +70,7 @@ inputs = {
       }
     ]),
   ])
+  defined_tags = {
+    "Custom-Tags.ManagedBy" = "Dynamic-Group/k8s-nodes"
+  }
 }

@@ -11,6 +11,7 @@ No requirements.
 |------|---------|
 | <a name="provider_local"></a> [local](#provider\_local) | 2.4.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.2.1 |
+| <a name="provider_tls"></a> [tls](#provider\_tls) | n/a |
 
 ## Modules
 
@@ -23,6 +24,7 @@ No modules.
 | [local_file.patch_all](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [local_file.patch_controlplane](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [null_resource.talos_configurations](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
+| [tls_private_key.this](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key) | resource |
 | [local_file.controlplane_yaml](https://registry.terraform.io/providers/hashicorp/local/latest/docs/data-sources/file) | data source |
 | [local_file.worker_yaml](https://registry.terraform.io/providers/hashicorp/local/latest/docs/data-sources/file) | data source |
 | [local_sensitive_file.talosconfig](https://registry.terraform.io/providers/hashicorp/local/latest/docs/data-sources/sensitive_file) | data source |

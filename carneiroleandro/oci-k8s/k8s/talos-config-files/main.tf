@@ -2,9 +2,15 @@ locals {
   additional_sans = length(var.additional_sans) > 0 ? format("--additional-sans %s", join(",", var.additional_sans)) : ""
 }
 
+resource "tls_private_key" "this" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
 resource "local_file" "patch_controlplane" {
   content = templatefile("templates/patch-controlplane.yaml.tpl", {
-    k8s_service_account_issuer = var.k8s_service_account_issuer
+    k8s_service_account_issuer          = var.k8s_service_account_issuer
+    k8s_service_account_private_key_b64 = base64encode(tls_private_key.this.private_key_pem)
   })
   filename = "patches/controlplane.yaml"
 }
@@ -27,6 +33,7 @@ resource "null_resource" "talos_configurations" {
       var.k8s_pod_subnet_cidr,
       var.k8s_service_subnet_cidr,
       var.k8s_service_account_issuer,
+      base64encode(tls_private_key.this.private_key_pem),
     ])
   }
 
