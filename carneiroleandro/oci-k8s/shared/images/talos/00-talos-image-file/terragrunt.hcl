@@ -24,5 +24,5 @@ locals {
 }
 
 inputs = {
-  talos_version = "v1.4.5"
+  talos_version = "v1.9.3"
 }

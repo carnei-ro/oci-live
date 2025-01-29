@@ -9,8 +9,8 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_local"></a> [local](#provider\_local) | 2.4.0 |
-| <a name="provider_null"></a> [null](#provider\_null) | 3.2.1 |
+| <a name="provider_local"></a> [local](#provider\_local) | 2.5.2 |
+| <a name="provider_null"></a> [null](#provider\_null) | 3.2.3 |
 
 ## Modules
 
@@ -28,7 +28,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_talos_version"></a> [talos\_version](#input\_talos\_version) | The Talos version to use | `string` | n/a | yes |
-| <a name="input_talos_release_url"></a> [talos\_release\_url](#input\_talos\_release\_url) | The Talos release URL to use. If not specified, this module will generate a GitHub Releases URL. | `string` | `null` | no |
+| <a name="input_talos_release_url"></a> [talos\_release\_url](#input\_talos\_release\_url) | The Talos release URL to use. If not specified, this module will generate a Talos Factory URL. Check https://www.talos.dev/v1.9/talos-guides/install/cloud-platforms/oracle/. | `string` | `null` | no |
 
 ## Outputs
 
