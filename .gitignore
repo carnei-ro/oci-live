@@ -1,0 +1,20 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+**/.terragrunt-cache
+**/.terraform.lock.hcl
+**/.terraform
+**/_backend.tofu
+**/_encryption.tofu
+**/_gitlab_secrets.tofu
+**/_tg_oci_provider.tofu
+
+# Ignore all .tool-versions files except the one in the root of the repository
+/**/.tool-versions
+!/.tool-versions
+
+.env
